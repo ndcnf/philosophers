@@ -8,8 +8,8 @@ OBJ =		${SRC:.c=.o}
 
 all:		${NAME}
 
-${NAME}:	${OBJ} ${CC} ${CFLAGS} \
-			${OBJ} -o ${NAME}
+${NAME}:	${OBJ}
+			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
 norm:		all
 			norminette ${SRC} push_swap.h
