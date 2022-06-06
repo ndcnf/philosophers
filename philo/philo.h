@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/06 12:27:46 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/06 15:20:48 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 #include <sys/time.h> // gettimeofday
 #include <pthread.h> // pthread_*
 
-struct philo
+typedef struct s_philo
 {
-	int		num;
+	int		id;
 	struct	philo* next;
-};
-typedef struct philo philo_t;
-
+} t_philo;
