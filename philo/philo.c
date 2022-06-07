@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/06 15:26:55 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/07 08:05:44 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,17 @@ void	philo_status(t_philo *head)
 	tempura = head;
 	while (tempura != NULL)
 	{
-		printf("Philo num %d\n", tempura->num);
+		printf("Philo num %d\n", tempura->id);
 		tempura = tempura->next;
 	}
+}
+
+t_philo	*new_philo_arrived(int value)
+{
+	t_philo	*res;
+
+	res = malloc(sizeof(t_philo));
+	res->
 }
 
 int	main(int argc, char *argv[])
@@ -35,10 +43,10 @@ int	main(int argc, char *argv[])
 	t_philo *head;
 
 	//LES LIENS DE LA LISTE CHAINEE SE FONT ICI - UNIQUEMENT EXEMPLE, faire une boucle correcte en vrai
-	//head = &philo1				//definit quel est le premier philo
-	//philo1.next = &philo2			//definit le second philo
-	//philo2.next = &philo3			//definit le troisieme philo
-	//philo3.next = NULL			//definit que c'est le dernier philo, il n'y en a pas de suivant
+	//head = &philo1;				//definit quel est le premier philo
+	//philo1.next = &philo2;		//definit le second philo
+	//philo2.next = &philo3;		//definit le troisieme philo
+	//philo3.next = NULL;			//definit que c'est le dernier philo, il n'y en a pas de suivant
 	printf("hello world\n");		//Juste pour afficher quelque chose et voir qu'on fait qqch
 	philo_status(head);
 

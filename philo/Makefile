@@ -12,7 +12,7 @@ ${NAME}:	${OBJ}
 			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
 norm:		all
-			norminette ${SRC} push_swap.h
+			norminette ${SRC} philo.h
 clean:
 			rm -rf ${OBJ}
 
