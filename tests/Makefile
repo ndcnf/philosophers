@@ -1,10 +1,8 @@
 CC =		cc
-CFLAGS =	-Wall -Wextra -Werror -g #-fsanitize=address
-NAME =		philo
+CFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address
+NAME =		test
 AR =		ar rcs
-SRC =		philo.c \
-			inputs.c \
-			utils.c \
+SRC =		test.c \
 
 OBJ =		${SRC:.c=.o}
 
@@ -14,7 +12,7 @@ ${NAME}:	${OBJ}
 			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
 norm:		all
-			norminette ${SRC} philo.h
+			norminette ${SRC} test.h
 clean:
 			rm -rf ${OBJ}
 

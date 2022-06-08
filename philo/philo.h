@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/07 11:46:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/07 13:59:39 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@
 	struct	s_philo *next;
 	struct	s_philo *prev;
 } t_philo; */
+
+typedef struct node
+{
+	int id;
+	struct node* next;
+} node;
 
 // takes every args
 ///////////////////

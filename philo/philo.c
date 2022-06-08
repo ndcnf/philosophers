@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/07 09:27:06 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/07 14:17:53 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,19 @@ t_philo	*new_philo_arrived(int value)
 
 int	main(int argc, char *argv[])
 {
-	t_inputs	args;
-	args_manager(&args, argc, argv);
+	//t_inputs	args;
+	node		head;
+
+	(void)argc;
+	(void)argv;
+	//args_manager(&args, argc, argv);
+	printf("quoi...?");
+	head.id = 15;
+	printf("ola");
+	head.next->next = malloc(sizeof(node));
+	printf("postmalloc");
+	head.next->id = -2;
+	head.next->next = NULL;
 	//t_philo	philo1;				//uniquement pour exemple avec trois philos
 	//t_philo	philo2;				//ce code est seulement pour illustrer
 	//t_philo	philo3;				//faudra le supprimer ensuite
@@ -50,5 +61,8 @@ int	main(int argc, char *argv[])
 	printf("hello world\n");		//Juste pour afficher quelque chose et voir qu'on fait qqch
 	philo_status(head); */
 
+	printf("first : %d\n", head.id);
+	printf("second : %d\n", head.next->id);
+	free(head.next);
 	return (0);
 }
