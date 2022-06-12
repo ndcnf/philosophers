@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:29:19 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/07 09:31:26 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/12 16:02:38 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,13 @@ int	ft_atoi(const char *str)
 		}
 	}
 	return (value * sign);
+}
+
+void	ft_putstr(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+		write(1, s[i++], 1);
 }

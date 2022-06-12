@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   ckecks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/12 16:37:56 by nchennaf         ###   ########.fr       */
+/*   Created: 2022/06/12 15:57:12 by nchennaf          #+#    #+#             */
+/*   Updated: 2022/06/12 16:45:18 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-/*void	philo_status(t_philo *phl)
+void	errorminator(char *s)
 {
-	t_philo	*tempura;
+	ft_putstr(s);
+	ft_putstr("\n");
+	exit (EXIT_FAILURE);
+}
 
-	while (tempura != NULL)
-	{
-		printf("Philo num %d\n", tempura->id);
-	}
-}*/
-
-int	main(int argc, char *argv[])
+int	check_args(int argc, char *argv[], t_inputs *args)
 {
-	t_inputs	args;
+	int	i;
 
-	check_args(argc, argv);
-
-
-
-	return (0);
+	i = 1;
+	if (argc != 5 || argc != 6)
+		errorminator(ERR_ARGS);
+	//while (i <= argc)
+		//checker les valeurs des arguments ici
 }

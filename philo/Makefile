@@ -5,6 +5,7 @@ AR =		ar rcs
 SRC =		philo.c \
 			inputs.c \
 			utils.c \
+			checks.c \
 
 OBJ =		${SRC:.c=.o}
 
