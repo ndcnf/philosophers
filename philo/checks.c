@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 15:57:12 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 11:02:26 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 11:21:50 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void	check_args(int argc, char *argv[], t_inputs *args)
 	while (i < argc)
 	{
 		if (!ft_atoi(argv[i]))
+			errorminator(ERR_TYPE);
+		else if (ft_atoi(argv[i]) > INT_MAX)
+			errorminator(ERR_TYPE);
+		else if (ft_atoi(argv[i]) < 0)
 			errorminator(ERR_TYPE);
 		i++;
 	}
