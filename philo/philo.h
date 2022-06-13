@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 10:07:16 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:34:36 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define ERR_TYPE "It should be better with numbers\n"
 # define ERR_PHL "There should be 1 to many (but not TOO many) philosopher(s)\n"
 # define ERR_TTS "The length of time should be positive and not exceed a certain time\n"
+# define N_MEAL "FYI: every philosopher will eat until they're bored and die\n"
 
 
 // so many forks
@@ -70,6 +71,10 @@ void	philo_status(t_philo *head);
 // inputs.c
 ///////////
 void	args_manager(t_inputs *args, int argc, char *argv[]);
+
+// init.c
+/////////
+void	init_args(t_inputs *args);
 
 // checks.c
 ///////////
