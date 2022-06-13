@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 11:02:53 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 13:31:30 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	args_manager(t_inputs *args, int argc, char *argv[])
 	args->time_to_eat = ft_atoi(argv[3]);
 	args->time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
-	{
 		args->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
-		ft_putstr(N_MEAL);
-	}
 }
+
+// void	philo_starter_pack(t_inputs *args, t_philo *phi)
+// {
+	
+// }

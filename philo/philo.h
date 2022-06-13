@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 11:20:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 13:36:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,29 @@
 # define ERR_PHL "There should be 1 to many (but not TOO many) philosopher(s)\n"
 # define ERR_TTS "The length of time should be positive and not exceed a certain time\n"
 # define N_MEAL "FYI: every philosopher will eat until they're bored and die\n"
-
+# define S_SLP "is sleeping\n"
+# define S_EAT "is eating\n"
+# define S_THK "is thinking\n"
+# define S_RIP "is dead\n"
+# define S_INIT "is not ready yet for this simulation\n"
 
 // so many forks
 // one for every philosopher
 ////////////////////////////
 typedef struct s_spork
 {
-	int		id;
-	int		nbr;
+	int	id;
+	int	status; //taken or available
 } t_spork;
 
 // defines a philospher
 //////////////////////////////
 typedef struct s_philo
 {
-	int		id;
-	t_spork	fork;
+	int	id;
+	int	meals_nbr;
+	int	status; //is eating, is sleeping, is thinking or is dead
+	t_spork	*fork;
 } t_philo;
 
 // takes every args
@@ -55,14 +61,17 @@ typedef struct s_inputs
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
-	int	number_of_times_each_philosopher_must_eat; //optional
+	int	number_of_times_each_philosopher_must_eat; //arg is optional, to take into acount isn't
 } t_inputs;
 
 
 
 // the almighty structure ???
 /////////////////////////
-
+// typedef struct s_sim
+// {
+	
+// } t_sim;
 
 // philo.c
 //////////
@@ -75,6 +84,7 @@ void	args_manager(t_inputs *args, int argc, char *argv[]);
 // init.c
 /////////
 void	init_args(t_inputs *args);
+void	init_sim(t_philo *phi);
 
 // checks.c
 ///////////
