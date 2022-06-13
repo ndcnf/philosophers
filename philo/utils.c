@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:29:19 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/12 16:02:38 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:00:59 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	ft_putstr(char *s)
 
 	i = 0;
 	while (s[i])
-		write(1, s[i++], 1);
+		write(1, &s[i++], 1);
 }

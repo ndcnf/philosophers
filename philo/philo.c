@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/12 16:37:56 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:12:01 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int	main(int argc, char *argv[])
 {
 	t_inputs	args;
 
-	check_args(argc, argv);
-
+	check_args(argc, argv, &args);
+	args_manager(&args, argc, argv);
+	printf("atoi[%d]\n", args.number_of_philosophers);
 
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/12 16:39:16 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/13 10:07:16 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@
 # include <sys/time.h> // gettimeofday
 # include <pthread.h> // pthread_*
 
-# define ERR_ARGS "Wrong number of arguments"
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+# define ERROR "Error\n"
+# define ERR_ARGS "Wrong number of arguments\n"
+# define ERR_TYPE "It should be better with numbers\n"
+# define ERR_PHL "There should be 1 to many (but not TOO many) philosopher(s)\n"
+# define ERR_TTS "The length of time should be positive and not exceed a certain time\n"
+
 
 // so many forks
 // one for every philosopher
@@ -66,7 +73,7 @@ void	args_manager(t_inputs *args, int argc, char *argv[]);
 
 // checks.c
 ///////////
-int	check_args(int argc, char *argv[]);
+void	check_args(int argc, char *argv[], t_inputs *args);
 
 // utils.c
 //////////
