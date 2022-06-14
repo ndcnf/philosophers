@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/14 11:02:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/14 12:19:01 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@
 # define ERR_TTS "The length of time should be positive and not exceed a certain time\n"
 # define ERR_MEM "Couldn't allow enough memory\n"
 
-# define N_MEAL "FYI: every philosopher will eat until they're bored and die\n"
+# define S_FK "has taken a fork\n"
 # define S_SLP "is sleeping\n"
 # define S_EAT "is eating\n"
 # define S_THK "is thinking\n"
-# define S_RIP "is dead\n"
+# define S_RIP "died\n"
 
 # define INIT 0
 # define AVAIL 1
