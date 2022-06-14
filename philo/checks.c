@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 15:57:12 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 11:21:50 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/14 10:40:31 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	errorminator(char *s)
 	exit (EXIT_FAILURE);
 }
 
-void	check_args(int argc, char *argv[], t_inputs *args)
+void	check_args(int argc, char *argv[])
 {
 	int	i;
 
-	i = 1;
 	if (argc != 5 && argc != 6)
 		errorminator(ERR_ARGS);
+	i = 1;
 	while (i < argc)
 	{
 		if (!ft_atoi(argv[i]))
@@ -36,5 +36,4 @@ void	check_args(int argc, char *argv[], t_inputs *args)
 			errorminator(ERR_TYPE);
 		i++;
 	}
-	args_manager(args, argc, argv);
 }

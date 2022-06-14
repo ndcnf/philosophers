@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 13:35:22 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:02:29 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,14 @@ int	main(int argc, char *argv[])
 {
 	t_inputs	args;
 	t_philo		phi; //needs more reflexion, see exam 03
+	t_spork		fk;
 
+	check_args(argc, argv);
+	need_space(&args, &phi, &fk);
 	init_args(&args);
-	init_sim(&phi); //not sure
-	check_args(argc, argv, &args);
+	init_sim(&phi, &fk); //not sure
+
+	args_manager(&args, argc, argv);
 
 	return (0);
 }
