@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/14 14:00:10 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/14 17:19:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,22 @@
 // so many forks
 // one for every philosopher
 ////////////////////////////
-typedef struct s_spork
+typedef struct s_sporks
 {
 	int	id;
 	int	status; //taken or available
-} t_spork;
+} t_sporks;
 
 // defines a philospher
 //////////////////////////////
-typedef struct s_philo
+typedef struct s_philos
 {
 	int			id;
 	int			meals_nbr;
 	int			status; //is eating, is sleeping, is thinking or is dead
 	int			timestamp;
 	//t_spork	*fork; //not sure
-} t_philo;
+} t_philos;
 
 // takes every args
 ///////////////////
@@ -93,6 +93,7 @@ void	philo_status(t_philo *head);
 // inputs.c
 ///////////
 void	args_manager(t_inputs *args, int argc, char *argv[]);
+void	fork_manager(&args, &fk);
 
 // init.c
 /////////
