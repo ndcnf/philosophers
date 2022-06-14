@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/14 12:19:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/14 14:00:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ typedef struct s_spork
 //////////////////////////////
 typedef struct s_philo
 {
-	int	id;
-	int	meals_nbr;
-	int	status; //is eating, is sleeping, is thinking or is dead
+	int			id;
+	int			meals_nbr;
+	int			status; //is eating, is sleeping, is thinking or is dead
+	int			timestamp;
 	//t_spork	*fork; //not sure
 } t_philo;
 
@@ -81,6 +82,7 @@ typedef struct s_inputs
 /////////////////////////
 // typedef struct s_sim
 // {
+//	int	timestamp;
 	
 // } t_sim;
 
@@ -102,6 +104,10 @@ void	init_sim(t_philo *phi, t_spork *fk);
 ///////////
 void	errorminator(char *s);
 void	check_args(int argc, char *argv[]);
+
+//time.c
+////////
+void time_usec(void); // type and arg to do
 
 // utils.c
 //////////

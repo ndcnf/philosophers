@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/14 11:02:29 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/14 13:55:00 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int	main(int argc, char *argv[])
 
 	args_manager(&args, argc, argv);
 
-	return (0);
+	time_usec();
+
+	return (EXIT_SUCCESS);
 }

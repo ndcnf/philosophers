@@ -7,6 +7,7 @@ SRC =		philo.c \
 			utils.c \
 			checks.c \
 			init.c \
+			time.c \
 
 OBJ =		${SRC:.c=.o}
 
