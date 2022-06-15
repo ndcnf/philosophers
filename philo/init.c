@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 14:19:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:22:31 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	need_space(t_philos *phis)
 {
 	printf("[%d]\n", phis->in->number_of_philosophers);
-	phis = malloc(sizeof(t_philos) * phis->in->number_of_philosophers);
-		if (!phis)
-			errorminator(ERR_MEM);
+	// phis = malloc(sizeof(t_philos) * phis->in->number_of_philosophers);
+	// 	if (!phis)
+	// 		errorminator(ERR_MEM);
 	// phis = malloc(sizeof(t_philo));
 	// 	if (!phis)
 	// 		errorminator(ERR_MEM);

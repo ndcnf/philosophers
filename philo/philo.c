@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 14:19:20 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:20:19 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 	init_args(&phis);
 	init_sim(&phis);
 	args_manager(&phis, argc, argv);
-	// need_space(&phis);
+	need_space(&phis);
 
 	time_usec();
 
