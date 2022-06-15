@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/14 17:19:46 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:41:45 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,6 @@
 # define THINKS 3
 # define DIES 4
 
-// so many forks
-// one for every philosopher
-////////////////////////////
-typedef struct s_sporks
-{
-	int	id;
-	int	status; //taken or available
-} t_sporks;
-
-// defines a philospher
-//////////////////////////////
-typedef struct s_philos
-{
-	int			id;
-	int			meals_nbr;
-	int			status; //is eating, is sleeping, is thinking or is dead
-	int			timestamp;
-	//t_spork	*fork; //not sure
-} t_philos;
-
 // takes every args
 ///////////////////
 typedef struct s_inputs
@@ -73,33 +53,34 @@ typedef struct s_inputs
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
-	int	number_of_times_each_philosopher_must_eat; //arg is optional, to take into account isn't
+	int	number_of_times_each_philosopher_must_eat; //arg is optional
 } t_inputs;
 
-
-
-// the almighty structure ???
-/////////////////////////
-// typedef struct s_sim
-// {
-//	int	timestamp;
-	
-// } t_sim;
+// defines a philospher
+//////////////////////////////
+typedef struct s_philos
+{
+	int			id;
+	int			meals_nbr;
+	int			status; //is eating, is sleeping, is thinking or is dead
+	int			last_meal; //when was their last meal?
+	t_inputs	*in;
+} t_philos;
 
 // philo.c
 //////////
-void	philo_status(t_philo *head);
+
+
 
 // inputs.c
 ///////////
 void	args_manager(t_inputs *args, int argc, char *argv[]);
-void	fork_manager(&args, &fk);
 
 // init.c
 /////////
-void	need_space(t_inputs *args, t_philo *phi, t_spork *fk);
+void	need_space(t_philos *phis);
 void	init_args(t_inputs *args);
-void	init_sim(t_philo *phi, t_spork *fk);
+void	init_sim(t_philos *phi);
 
 // checks.c
 ///////////
@@ -108,7 +89,7 @@ void	check_args(int argc, char *argv[]);
 
 //time.c
 ////////
-void time_usec(void); // type and arg to do
+void	time_usec(); // type and arg to do
 
 // utils.c
 //////////
