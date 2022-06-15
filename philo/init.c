@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 14:52:06 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:55:05 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	need_space(t_philos *phis)
 
 void	init_args(t_philos *phis)
 {
-	// phis->in = malloc(sizeof(t_inputs));
 	phis->in->number_of_philosophers = INIT;
 	phis->in->time_to_die = INIT;
 	phis->in->time_to_eat = INIT;
