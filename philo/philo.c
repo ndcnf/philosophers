@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 16:17:43 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:50:00 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ int	main(int argc, char *argv[])
 	phis = NULL;
 	check_args(argc, argv);
 	need_space(phis, ft_atoi(argv[1]));
+	int	i;
+
+	i = 0;
+	printf("[%p]\n", (void *)&phis);
+	while (i < ft_atoi(argv[1]))
+	{
+		printf("[%p]\n", (void *)&phis[i].in);
+		i++;
+	}
 	// args_manager(&phis, argc, argv);
 
 	// pthread_create(&phis.phi, NULL, philo_starter_pack, (void *)&phis);
