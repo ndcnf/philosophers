@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 11:40:30 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:19:20 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 int	main(int argc, char *argv[])
 {
-	t_inputs	args;
 	t_philos	phis;
+	//t_inputs	in;
 
 	check_args(argc, argv);
-	need_space(&phis);
-	init_args(&args);
+	init_args(&phis);
 	init_sim(&phis);
-	args_manager(&args, argc, argv);
-
-
+	args_manager(&phis, argc, argv);
+	// need_space(&phis);
 
 	time_usec();
 

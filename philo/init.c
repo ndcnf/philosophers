@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 11:47:07 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:19:04 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	need_space(t_philos *phis)
 {
+	printf("[%d]\n", phis->in->number_of_philosophers);
 	phis = malloc(sizeof(t_philos) * phis->in->number_of_philosophers);
 		if (!phis)
 			errorminator(ERR_MEM);
@@ -22,13 +23,14 @@ void	need_space(t_philos *phis)
 	// 		errorminator(ERR_MEM);
 }
 
-void	init_args(t_inputs *args)
+void	init_args(t_philos *phis)
 {
-	args->number_of_philosophers = INIT;
-	args->time_to_die = INIT;
-	args->time_to_eat = INIT;
-	args->time_to_sleep = INIT;
-	args->number_of_times_each_philosopher_must_eat = INIT;
+	phis->in = malloc(sizeof(t_inputs));
+	phis->in->number_of_philosophers = INIT;
+	phis->in->time_to_die = INIT;
+	phis->in->time_to_eat = INIT;
+	phis->in->time_to_sleep = INIT;
+	phis->in->number_of_times_each_philosopher_must_eat = INIT;
 }
 
 void	init_sim(t_philos *phis)
