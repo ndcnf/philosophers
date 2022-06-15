@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/15 16:46:16 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:35:57 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_philos
 	int			status; //is eating, is sleeping, is thinking or is dead
 	int			last_meal; //when was their last meal?
 	pthread_t	phi;
+	pthread_mutex_t	fork; //TESTER
 	t_inputs	*in;
 } t_philos;
 
