@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 13:45:47 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 16:59:24 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char *argv[])
 	// pthread_mutex_init(&phis->fork, NULL); //TESTER
 
 	////////////TEST DE CREATION DE THREAD////////////////////////////////////////
-	// pthread_create(&phis.phi, NULL, philo_starter_pack, (void *)&phis);
+	// pthread_create(&phis.phi, NULL, the_routine, (void *)&phis);
 	// while (1)
 	// {
 	// 	usleep(200);

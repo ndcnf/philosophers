@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 15:43:28 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 15:55:08 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,22 @@ void	args_manager(t_inputs *in, int argc, char *argv[])
 		in->nbr_of_meals = ft_atoi(argv[5]);
 }
 
-void	*philo_starter_pack(void *arg)
+// void	philo_starter_pack(PARAMETRES COOL)
+// {
+// 	// pthread_t	phi;
+// 	t_philos *phis;
+
+// 	phis = arg;
+// 	while (1)
+// 	{
+// 		printf("id[%d]\n", phis->in->number_of_philosophers);
+// 		usleep(100);
+// 		printf("Marco ?\n");
+// 	}
+// 	return (NULL);
+// }
+
+void	*the_routine(void *arg)
 {
 	// pthread_t	phi;
 	t_philos *phis;
@@ -36,3 +51,4 @@ void	*philo_starter_pack(void *arg)
 	}
 	return (NULL);
 }
+

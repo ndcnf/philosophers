@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 15:33:23 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 15:55:32 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ typedef struct s_philos
 // inputs.c
 ///////////
 void	args_manager(t_inputs *in, int argc, char *argv[]);
-void	*philo_starter_pack(void *arg);
+//void	philo_starter_pack(PARAM);
+void	*the_routine(void *arg);
 
 // init.c
 /////////
