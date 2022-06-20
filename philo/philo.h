@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 11:17:52 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 11:21:58 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	*philo_starter_pack(void *arg);
 
 // init.c
 /////////
-int		need_space(t_philos *phis, int n_phis);
+int		need_space(t_philos **phis, int n_phis);
 
 // checks.c
 ///////////

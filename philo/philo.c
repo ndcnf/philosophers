@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 11:14:54 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 11:26:31 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ void	*routine_du_mutex(t_philos *phis)
 int	main(int argc, char *argv[])
 {
 	t_philos	*phis;
+	int			n_phis;
 
 	phis = NULL;
+	n_phis = 0;
 	if (check_args(argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (need_space(&phis, ft_atoi(argv[1])) == EXIT_FAILURE)
+	n_phis = ft_atoi(argv[1]);
+	if (need_space(&phis, n_phis) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	int	i;
 
