@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 15:41:34 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:22:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	need_space(t_philos **phis, int argc, char *argv[])
 	if (!in)
 		return (errorminator(ERR_MEM));
 	args_manager(in, argc, argv);
-	while(i < n_phis)
+	while (i < n_phis)
 	{
 		(*phis)[i].in = in;
 		printf("need_space, dans boucle : [%p]\n", (*phis)[i].in);

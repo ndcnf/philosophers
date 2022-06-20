@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 15:55:32 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:28:53 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 
 # define ERROR "Error\n"
 # define ERR_ARGS "Wrong number of arguments\n"
-# define ERR_TYPE "It should be better with numbers between 1 and not too many\n"
+# define ERR_TYPE "Enter numbers between 1 and not too many\n"
 # define ERR_PHL "There should be 1 to many (but not TOO many) philosopher(s)\n"
-# define ERR_TTS "The length of time should be positive and not exceed a certain time\n"
+# define ERR_TTS "The length of time is invalid\n"
 # define ERR_MEM "Couldn't allow enough memory\n"
 
 # define S_FK "has taken a fork\n"
@@ -54,7 +54,7 @@ typedef struct s_inputs
 	int	time_to_eat;
 	int	time_to_sleep;
 	int	nbr_of_meals;
-} t_inputs;
+}	t_inputs;
 
 // defines a philospher
 //////////////////////////////
@@ -67,12 +67,7 @@ typedef struct s_philos
 	pthread_t		phi;
 	pthread_mutex_t	fork; //TESTER
 	t_inputs		*in;
-} t_philos;
-
-// philo.c
-//////////
-
-
+}	t_philos;
 
 // inputs.c
 ///////////
@@ -91,7 +86,7 @@ int		check_args(int argc, char *argv[]);
 
 //time.c
 ////////
-void	time_usec(); // type and arg to do
+void	time_usec(void); // type and arg to do
 
 // utils.c
 //////////

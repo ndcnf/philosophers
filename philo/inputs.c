@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 15:55:08 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:22:33 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	args_manager(t_inputs *in, int argc, char *argv[])
 
 void	*the_routine(void *arg)
 {
-	// pthread_t	phi;
-	t_philos *phis;
+	t_philos	*phis;
 
 	phis = arg;
 	while (1)
@@ -51,4 +50,3 @@ void	*the_routine(void *arg)
 	}
 	return (NULL);
 }
-

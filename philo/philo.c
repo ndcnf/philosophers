@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 16:59:24 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:31:17 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ void	*routine_du_mutex(t_philos *phis)
 	}
 	return (NULL);
 }
+//////////////////////////////////////////////////////////////////////////////
 
 int	main(int argc, char *argv[])
 {
 	t_philos	*phis;
-	int			n_phis;
+	int			i;
+	int			n_phis; //peut-etre en trop, a voir
 
 	phis = NULL;
 	n_phis = 0;
+	i = 0;
 	if (check_args(argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	//n_phis = ft_atoi(argv[1]); // utile peut-etre, mais pas ici
 	if (need_space(&phis, argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	int	i;
-
-	i = 0;
 	printf("main, avant boucle : [%p]\n", phis);
 	while (i < ft_atoi(argv[1]))
 	{
@@ -51,10 +51,11 @@ int	main(int argc, char *argv[])
 		i++;
 	}
 
-	////////////TEST DU MUTEX/////////////////////////////////////////////////////
-	// pthread_mutex_init(&phis->fork, NULL); //TESTER
+////////////TEST DU MUTEX/////////////////////////////////////////////////////
+	pthread_mutex_init(&phis->fork, NULL); //TESTER
+	routine_du_mutex(phis);
 
-	////////////TEST DE CREATION DE THREAD////////////////////////////////////////
+////////////TEST DE CREATION DE THREAD////////////////////////////////////////
 	// pthread_create(&phis.phi, NULL, the_routine, (void *)&phis);
 	// while (1)
 	// {
@@ -62,11 +63,10 @@ int	main(int argc, char *argv[])
 	// 	printf("Polo !\n");
 	// }
 
-	////////////TEST DU MUTEX/////////////////////////////////////////////////////
+////////////TEST DU MUTEX/////////////////////////////////////////////////////
 	// pthread_mutex_destroy(&phis->fork);
 
-
-	////////////TEST DU TEMPS/////////////////////////////////////////////////////
+////////////TEST DU TEMPS/////////////////////////////////////////////////////
 	// time_usec();
 
 	return (EXIT_SUCCESS);

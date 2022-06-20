@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 09:29:19 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/13 10:00:59 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:29:18 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_atoi(const char *str)
 
 void	ft_putstr(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
