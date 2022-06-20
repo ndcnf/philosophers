@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 17:31:17 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 19:03:01 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,11 @@ int	main(int argc, char *argv[])
 	//n_phis = ft_atoi(argv[1]); // utile peut-etre, mais pas ici
 	if (need_space(&phis, argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	printf("main, avant boucle : [%p]\n", phis);
-	while (i < ft_atoi(argv[1]))
-	{
-		printf("main, dans boucle : [%p]\n", phis[i].in);
-		i++;
-	}
+	philo_starter_pack(&phis);
 
-////////////TEST DU MUTEX/////////////////////////////////////////////////////
-	pthread_mutex_init(&phis->fork, NULL); //TESTER
-	routine_du_mutex(phis);
+// ////////////TEST DU MUTEX/////////////////////////////////////////////////////
+// 	pthread_mutex_init(&phis->fork, NULL); //TESTER
+// 	routine_du_mutex(phis);
 
 ////////////TEST DE CREATION DE THREAD////////////////////////////////////////
 	// pthread_create(&phis.phi, NULL, the_routine, (void *)&phis);

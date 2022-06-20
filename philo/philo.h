@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 17:28:53 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 19:47:07 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,20 @@ typedef struct s_philos
 	int				status; //is eating, is sleeping, is thinking or is dead
 	int				last_meal; //when was their last meal?
 	pthread_t		phi;
-	pthread_mutex_t	fork; //TESTER
+	pthread_mutex_t	fork;
 	t_inputs		*in;
 }	t_philos;
 
 // inputs.c
 ///////////
 void	args_manager(t_inputs *in, int argc, char *argv[]);
-//void	philo_starter_pack(PARAM);
+void	philo_starter_pack(t_philos **phis);
 void	*the_routine(void *arg);
 
 // init.c
 /////////
 int		need_space(t_philos **phis, int argc, char *argv[]);
+// void	routine_du_mutex(phis);
 
 // checks.c
 ///////////
