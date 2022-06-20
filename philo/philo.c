@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 11:26:31 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:20:48 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int argc, char *argv[])
 	int	i;
 
 	i = 0;
-	// printf("main, avant boucle : [%p]\n", (void *)&phis);
-	printf("main, avant boucle : [%p]\n", &phis);
+	//printf("main, avant boucle : [%p]\n", (void *)&phis);
+	printf("main, avant boucle : [%p]\n", phis);
 	while (i < ft_atoi(argv[1]))
 	{
 		printf("main, dans boucle : [%p]\n", phis[i].in);
