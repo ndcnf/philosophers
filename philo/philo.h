@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 11:32:56 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:46:34 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ typedef struct s_philos
 
 // inputs.c
 ///////////
-void	args_manager(t_philos *phis, int argc, char *argv[]);
+void	args_manager(t_philos **phis, int argc, char *argv[]);
 void	*philo_starter_pack(void *arg);
 
 // init.c
 /////////
-int		need_space(t_philos **phis, int n_phis);
+int		need_space(t_philos **phis, int argc, char *argv[]);
 
 // checks.c
 ///////////

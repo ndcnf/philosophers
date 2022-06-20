@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 13:20:48 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:45:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,18 @@ int	main(int argc, char *argv[])
 	n_phis = 0;
 	if (check_args(argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	n_phis = ft_atoi(argv[1]);
-	if (need_space(&phis, n_phis) == EXIT_FAILURE)
+	//n_phis = ft_atoi(argv[1]); // utile peut-etre, mais pas ici
+	if (need_space(&phis, argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	int	i;
 
 	i = 0;
-	//printf("main, avant boucle : [%p]\n", (void *)&phis);
 	printf("main, avant boucle : [%p]\n", phis);
 	while (i < ft_atoi(argv[1]))
 	{
 		printf("main, dans boucle : [%p]\n", phis[i].in);
 		i++;
 	}
-	// args_manager(&phis, argc, argv); //RESOUDRE CE PROBLEME
 
 	////////////TEST DU MUTEX/////////////////////////////////////////////////////
 	// pthread_mutex_init(&phis->fork, NULL); //TESTER

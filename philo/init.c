@@ -6,19 +6,21 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 13:23:05 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:56:49 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	need_space(t_philos **phis, int n_phis)
+int	need_space(t_philos **phis, int argc, char *argv[])
 {
 	int			i;
 	t_inputs	*tempura;
+	int			n_phis;
 
 	tempura = 0;
 	i = 0;
+	n_phis = ft_atoi(argv[1]);
 	*phis = (t_philos *)malloc(sizeof(t_philos) * n_phis);
 	if (!*phis)
 		return (errorminator(ERR_MEM));
@@ -26,6 +28,7 @@ int	need_space(t_philos **phis, int n_phis)
 	tempura = malloc(sizeof(t_inputs));
 	if (!tempura)
 		return (errorminator(ERR_MEM));
+	args_manager((phis, argc, argv); //REGLER CE PROBLEME D'APPEL DE FONCTION
 	while(i < n_phis)
 	{
 		(*phis)[i].in = tempura;
