@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 20:14:14 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:31:54 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,31 @@ void	philo_starter_pack(t_philos **phis)
 		pthread_mutex_init(&(*phis)[i].fork, NULL);
 		(*phis)[i].id = i;
 		pthread_create(&(*phis)[i].phi, NULL, the_routine, (void *)&(*phis)[i]);
-		//pthread_join((*phis)[i].phi, NULL);
 
-
-		//printf("id[%d]\n", ->in->number_of_philosophers);
-		usleep(100);
-		printf("Marcooooooooo ?\n");
+		// usleep(100);
+		printf("Polo ?\n");
 
 		i++;
 	}
+	// printf("starter pack : [%d]\n", i);
+	pthread_join((*phis)[0].phi, NULL); // termine le thread avant de continuer
 	//return (NULL);
 }
 
 void	*the_routine(void *arg)
 {
 	t_philos	*phi;
+	int			i;
 
+	i = 0;
 	phi = arg;
 	printf("HELLO\n");
 
-	//while (1)
-	//{
+	while (i < 3)
+	{
 		printf("id[%d], nbr[%d]\n", phi->id, phi->in->number_of_philosophers);
-		usleep(10000);
 		printf("Marco ?\n");
-	//}
+		i++;
+	}
 	return (NULL);
 }
