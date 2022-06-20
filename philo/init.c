@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 11:29:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 11:53:12 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	need_space(t_philos **phis, int n_phis)
 	*phis = (t_philos *)malloc(sizeof(t_philos) * n_phis);
 	if (!phis)
 		return (errorminator(ERR_MEM));
+	//*phis->in
 	printf("need_space, avant boucle : [%p]\n", &phis);
 	while(i < n_phis)
 	{
