@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 13:46:34 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 15:33:23 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_inputs
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
-	int	number_of_times_each_philosopher_must_eat;
+	int	nbr_of_meals;
 } t_inputs;
 
 // defines a philospher
@@ -76,7 +76,7 @@ typedef struct s_philos
 
 // inputs.c
 ///////////
-void	args_manager(t_philos **phis, int argc, char *argv[]);
+void	args_manager(t_inputs *in, int argc, char *argv[]);
 void	*philo_starter_pack(void *arg);
 
 // init.c
