@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/16 17:20:39 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/20 11:14:54 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*routine_du_mutex(t_philos *phis)
 	while (i < 100000)
 	{
 		pthread_mutex_lock(&phis->fork);
-		printf("I just did something cool here [%d]\n", i);
 		//DO SOMETHING COOL
+		printf("I just did something cool here [%d]\n", i);
 		pthread_mutex_unlock(&phis->fork);
 		i++;
 	}
@@ -34,15 +34,18 @@ int	main(int argc, char *argv[])
 	t_philos	*phis;
 
 	phis = NULL;
-	check_args(argc, argv);
-	need_space(phis, ft_atoi(argv[1]));
+	if (check_args(argc, argv) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (need_space(&phis, ft_atoi(argv[1])) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	int	i;
 
 	i = 0;
-	printf("main, avant boucle : [%p]\n", (void *)&phis);
+	// printf("main, avant boucle : [%p]\n", (void *)&phis);
+	printf("main, avant boucle : [%p]\n", &phis);
 	while (i < ft_atoi(argv[1]))
 	{
-		printf("main, dans boucle : [%p]\n", (void *)&phis[i].in);
+		printf("main, dans boucle : [%p]\n", phis[i].in);
 		i++;
 	}
 	// args_manager(&phis, argc, argv); //RESOUDRE CE PROBLEME
