@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 20:31:54 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/21 10:19:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	args_manager(t_inputs *in, int argc, char *argv[])
 		in->nbr_of_meals = ft_atoi(argv[5]);
 }
 
-void	philo_starter_pack(t_philos **phis)
+int		philo_starter_pack(t_philos **phis)
 {
-	//t_philos *phi;
 	int		nbr;
 	int		i;
 
@@ -32,9 +31,11 @@ void	philo_starter_pack(t_philos **phis)
 	nbr = (*phis)->in->number_of_philosophers;
 	while (i < nbr)
 	{
-		pthread_mutex_init(&(*phis)[i].fork, NULL);
+		if (pthread_mutex_init(&(*phis)[i].fork, NULL))
+			return (errorminator(ERR_THD));
 		(*phis)[i].id = i;
-		pthread_create(&(*phis)[i].phi, NULL, the_routine, (void *)&(*phis)[i]);
+		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, (void *)&(*phis)[i]))
+			return (errorminator(ERR_THD));
 
 		// usleep(100);
 		printf("Polo ?\n");
@@ -43,7 +44,7 @@ void	philo_starter_pack(t_philos **phis)
 	}
 	// printf("starter pack : [%d]\n", i);
 	pthread_join((*phis)[0].phi, NULL); // termine le thread avant de continuer
-	//return (NULL);
+	return (EXIT_SUCCESS);
 }
 
 void	*the_routine(void *arg)
@@ -52,12 +53,12 @@ void	*the_routine(void *arg)
 	int			i;
 
 	i = 0;
-	phi = arg;
+	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
 	printf("HELLO\n");
 
-	while (i < 3)
+	while (i < 3) // le '3' n'est que pour TESTER, cette valeur n'a AUCUN SENS
 	{
-		printf("id[%d], nbr[%d]\n", phi->id, phi->in->number_of_philosophers);
+		printf("id[%d], nbr[%d], ptr[%p]\n", phi->id, phi->in->number_of_philosophers, &phi[i].id);
 		printf("Marco ?\n");
 		i++;
 	}

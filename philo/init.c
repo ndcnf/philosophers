@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/21 08:50:48 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/21 09:59:29 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,3 @@ int	need_space(t_philos **phis, int argc, char *argv[])
 	}
 	return (EXIT_SUCCESS);
 }
-
-// int	init_mutex(t_philos **phis)
-// {
-// 	pthread_mutex_init(phis->fork, NULL);
-// 	routine_du_mutex(phis);
-// }

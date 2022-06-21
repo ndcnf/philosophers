@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 19:47:07 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/21 10:08:28 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ERR_PHL "There should be 1 to many (but not TOO many) philosopher(s)\n"
 # define ERR_TTS "The length of time is invalid\n"
 # define ERR_MEM "Couldn't allow enough memory\n"
+# define ERR_THD "Something went wrong with the thread\n"
 
 # define S_FK "has taken a fork\n"
 # define S_SLP "is sleeping\n"
@@ -72,7 +73,7 @@ typedef struct s_philos
 // inputs.c
 ///////////
 void	args_manager(t_inputs *in, int argc, char *argv[]);
-void	philo_starter_pack(t_philos **phis);
+int		philo_starter_pack(t_philos **phis);
 void	*the_routine(void *arg);
 
 // init.c
