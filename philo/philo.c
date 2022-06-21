@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/20 19:03:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/21 14:54:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,15 @@ int	main(int argc, char *argv[])
 {
 	t_philos	*phis;
 	int			i;
-	int			n_phis; //peut-etre en trop, a voir
 
 	phis = NULL;
-	n_phis = 0;
 	i = 0;
 	if (check_args(argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	//n_phis = ft_atoi(argv[1]); // utile peut-etre, mais pas ici
 	if (need_space(&phis, argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	philo_starter_pack(&phis);
+	if (philo_starter_pack(&phis))
+		return (EXIT_FAILURE);
 
 // ////////////TEST DU MUTEX/////////////////////////////////////////////////////
 // 	pthread_mutex_init(&phis->fork, NULL); //TESTER
