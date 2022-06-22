@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 10:23:52 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:00:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,26 @@
 ///////////////////
 typedef struct s_inputs
 {
-	int	number_of_philosophers;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	nbr_of_meals;
+	int				number_of_philosophers;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				nbr_of_meals;
+	pthread_mutex_t	*fork;
 }	t_inputs;
 
 // defines a philospher
 //////////////////////////////
 typedef struct s_philos
 {
-	int				id;
-	int				meals_nbr;
-	int				status;
-	int				last_meal; //when was their last meal?
-	int				neighbour;
-	int				action; //is eating, is sleeping, is thinking or is dead
-	pthread_t		phi;
-	pthread_mutex_t	fork;
-	t_inputs		*in;
+	int			id;
+	int			meals_nbr;
+	int			status;
+	int			last_meal; //when was their last meal?
+	int			neighbour; // if *r_nghbr fails
+	int			action; //is eating, is sleeping, is thinking or is dead
+	pthread_t	phi;
+	t_inputs	*in;
 }	t_philos;
 
 // inputs.c

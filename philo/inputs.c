@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 10:25:48 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:02:51 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ int		philo_starter_pack(t_philos **phis)
 	nbr = (*phis)->in->number_of_philosophers;
 	while (i < nbr)
 	{
-		if (pthread_mutex_init(&(*phis)[i].fork, NULL))
+		if (pthread_mutex_init(&(*phis)->in->fork[i], NULL))
 			return (errorminator(ERR_THD));
 		(*phis)[i].id = i;
 		init_philo(&(*phis)[i]);
 		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i])) //AVANT (void *)&(*phis)[i] mais trop long. IDEM ?
 			return (errorminator(ERR_THD));
 		// usleep(100);
-		printf("philo_starter_pack, DANS boucle\n\n\n");
 		printf("son voisin de droite : [%d][%d]\n", (*phis)[i].id, (*phis)[i].neighbour);
 		i++;
 	}
@@ -59,7 +58,7 @@ void	*the_routine(void *arg)
 
 	while (i < 3) // le '3' n'est que pour TESTER, cette valeur n'a AUCUN SENS
 	{
-		printf("id[%d], their fork[%p]\n", phi->id, &phi->fork);
+		printf("id[%d], their fork[%p]\n", phi->id, &phi->in->fork[phi->id]);
 		printf("ROUTINE, DANS boucle\n");
 		i++;
 	}

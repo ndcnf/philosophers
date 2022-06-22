@@ -6,28 +6,28 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 10:23:04 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 15:54:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 ////////////TEST DU MUTEX/////////////////////////////////////////////////////
-void	*routine_du_mutex(t_philos *phis)
-{
-	int	i;
+// void	*routine_du_mutex(t_philos *phis)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < 100000)
-	{
-		pthread_mutex_lock(&phis->fork);
-		//DO SOMETHING COOL
-		printf("I just did something cool here [%d]\n", i);
-		pthread_mutex_unlock(&phis->fork);
-		i++;
-	}
-	return (NULL);
-}
+// 	i = 0;
+// 	while (i < 100000)
+// 	{
+// 		pthread_mutex_lock(&in->fork[i]);
+// 		//DO SOMETHING COOL
+// 		printf("I just did something cool here [%d]\n", i);
+// 		pthread_mutex_unlock(&in->fork[i]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
 //////////////////////////////////////////////////////////////////////////////
 
 int	main(int argc, char *argv[])

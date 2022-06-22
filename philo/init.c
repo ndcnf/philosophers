@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 10:22:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:00:49 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	need_space(t_philos **phis, int argc, char *argv[])
 	if (!*phis)
 		return (errorminator(ERR_MEM));
 	in = malloc(sizeof(t_inputs));
-	if (!in)
+	in->fork = malloc(sizeof(pthread_mutex_t) * n_phis);
+	if (!in || !in->fork)
 		return (errorminator(ERR_MEM));
 	args_manager(in, argc, argv);
 	while (i < n_phis)
@@ -47,3 +48,13 @@ void	init_philo(t_philos *phi)
 	phi->status = ALIVE;
 	phi->action = NOTHING;
 }
+
+// int	hello_neighbour(t_philos *phi, t_philos *r_ngbr)
+// {
+// 		if (phi->id == (phi->in->number_of_philosophers) - 1)
+// 	{
+// 		phi->neighbour = 0;
+// 	}
+// 	else
+// 		phi->neighbour = (phi->id + 1);
+// }
