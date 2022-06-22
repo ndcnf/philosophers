@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 16:02:51 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:12:39 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	*the_routine(void *arg)
 	while (i < 3) // le '3' n'est que pour TESTER, cette valeur n'a AUCUN SENS
 	{
 		printf("id[%d], their fork[%p]\n", phi->id, &phi->in->fork[phi->id]);
+		printf("neighbour's id[%d], their neighbour's fork[%p]\n", phi->neighbour, &phi->in->fork[phi->neighbour]);
 		printf("ROUTINE, DANS boucle\n");
 		i++;
 	}
