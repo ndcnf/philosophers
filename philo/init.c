@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 16:12:44 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 16:14:32 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,3 @@ void	init_philo(t_philos *phi)
 	phi->status = ALIVE;
 	phi->action = NOTHING;
 }
-
-// int	hello_neighbour(t_philos *phi, t_philos *r_ngbr)
-// {
-// 	int	i;
-// 	int	nbr;
-
-// 	i = 0;
-// 	nbr = phi->in->number_of_philosophers - 1;
-// 	while (i <= nbr)
-// 	if (phi->id == nbr)
-// 	{
-// 		phi->in->fork[]
-// 	}
-// 	else
-// 		phi->neighbour = (phi->id + 1);
-// }
