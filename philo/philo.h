@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/21 10:08:28 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:23:52 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@
 # define S_THK "is thinking\n"
 # define S_RIP "died\n"
 
-# define INIT 0
-# define AVAIL 1
-# define UNAVAIL 2
+# define ALIVE 0
+# define DEAD 1
 
+# define NOTHING 0
 # define SLEEPS 1
 # define EATS 2
 # define THINKS 3
@@ -63,8 +63,10 @@ typedef struct s_philos
 {
 	int				id;
 	int				meals_nbr;
-	int				status; //is eating, is sleeping, is thinking or is dead
+	int				status;
 	int				last_meal; //when was their last meal?
+	int				neighbour;
+	int				action; //is eating, is sleeping, is thinking or is dead
 	pthread_t		phi;
 	pthread_mutex_t	fork;
 	t_inputs		*in;
@@ -79,6 +81,7 @@ void	*the_routine(void *arg);
 // init.c
 /////////
 int		need_space(t_philos **phis, int argc, char *argv[]);
+void	init_philo(t_philos *phi);
 // void	routine_du_mutex(phis);
 
 // checks.c
@@ -94,5 +97,12 @@ void	time_usec(void); // type and arg to do
 //////////
 int		ft_atoi(const char *str);
 void	ft_putstr(char *s);
+
+// actions.c
+////////////
+int		go_to_sleep(t_philos *phi);
+int		eat_something(t_philos *phi);
+int		think_about_life(t_philos *phi);
+int		surprise_ur_dead(t_philos *phi);
 
 #endif

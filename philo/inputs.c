@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/21 15:20:26 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:25:48 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ int		philo_starter_pack(t_philos **phis)
 		if (pthread_mutex_init(&(*phis)[i].fork, NULL))
 			return (errorminator(ERR_THD));
 		(*phis)[i].id = i;
+		init_philo(&(*phis)[i]);
 		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i])) //AVANT (void *)&(*phis)[i] mais trop long. IDEM ?
 			return (errorminator(ERR_THD));
 		// usleep(100);
 		printf("philo_starter_pack, DANS boucle\n\n\n");
+		printf("son voisin de droite : [%d][%d]\n", (*phis)[i].id, (*phis)[i].neighbour);
 		i++;
 	}
 	//pthread_join((*phis)[i].phi, NULL); // termine le thread avant de continuer -- CORRIGER

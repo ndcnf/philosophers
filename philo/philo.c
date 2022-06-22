@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/21 14:54:46 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:23:04 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	if (philo_starter_pack(&phis))
 		return (EXIT_FAILURE);
+
 
 // ////////////TEST DU MUTEX/////////////////////////////////////////////////////
 // 	pthread_mutex_init(&phis->fork, NULL); //TESTER
