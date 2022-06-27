@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 18:54:35 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:17:22 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int		eat_something(t_philos *phi)
 {
 	pthread_mutex_lock(&phi->in->fork[phi->id]);
-	printf("this is MY fork [%d]\n", phi->id);
+	printf("%*ld %d " S_FK, 7, time_usec() - phi->in->t_sim_start, phi->id);
 	pthread_mutex_lock(&phi->in->fork[phi->neighbour]);
-	printf("I borrow YOUR fork [%d]\n", phi->neighbour);
-	printf("now I[%d] can eat\n", phi->id);
+	printf("%*ld %d " S_FK, 7, time_usec() - phi->in->t_sim_start, phi->id);
+	printf("%*ld %d " S_EAT, 7, time_usec() - phi->in->t_sim_start, phi->id);
 	phi->meals_nbr++;
-	printf("I[%d] ate %d time yet\n", phi->id, phi->meals_nbr);
+	printf("[%d] ate %d time yet\n", phi->id, phi->meals_nbr);
 
 	please_wait(phi, phi->in->time_to_eat);
 

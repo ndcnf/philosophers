@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 19:09:29 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:14:11 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int		philo_starter_pack(t_philos **phis)
 			return (errorminator(ERR_THD));
 		(*phis)[i].id = i;
 		init_philo(&(*phis)[i]);
-		// if (i % 2)
-		// 	please_wait();
 		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i])) //AVANT (void *)&(*phis)[i] mais trop long. IDEM ?
 			return (errorminator(ERR_THD));
 		i++;
@@ -54,14 +52,10 @@ int		philo_starter_pack(t_philos **phis)
 	return (EXIT_SUCCESS);
 }
 
-// one philo after the other
-////////////////////////////
 void	*the_routine(void *arg)
 {
 	t_philos	*phi;
-	int			i;
 
-	i = 0;
 	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
 	phi->in->t_sim_start = time_usec();
 	if (phi->id % 2)
@@ -72,8 +66,6 @@ void	*the_routine(void *arg)
 		printf("%*ld %d " S_SLP, 7, time_usec() - phi->in->t_sim_start, phi->id);
 		please_wait(phi, phi->in->time_to_sleep);
 		printf("%*ld %d " S_THK, 7, time_usec() - phi->in->t_sim_start, phi->id);
-		//printf("need some zzzz[%d]\n", phi->id);
-		i++;
 	}
 	printf("[%d] broke the loop\n", phi->id);
 	return (NULL);
