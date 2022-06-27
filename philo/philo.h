@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 18:43:36 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:03:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_inputs
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nbr_of_meals;
+	size_t			t_sim_start;
 	pthread_mutex_t	*fork;
 }	t_inputs;
 
