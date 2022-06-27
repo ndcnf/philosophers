@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 17:22:06 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:33:41 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ int		please_wait()
 	int wait;
 	// wait = phi->in->time_to_eat;
 	wait = 100;
-	while (wait)
-	{
-		wait = (wait / 5);
-		printf("WAIT [%d]!\n", wait);
+	// while (wait)
+	// {
+	// 	wait = (wait / 5);
+	// 	printf("WAIT [%d]!\n", wait);
 		usleep(wait);
-	}
+	// }
 	return (EXIT_SUCCESS);
 }
 
