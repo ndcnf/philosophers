@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 13:55:23 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:31:10 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,20 @@ int		philo_starter_pack(t_philos **phis)
 			return (errorminator(ERR_THD));
 		(*phis)[i].id = i;
 		init_philo(&(*phis)[i]);
+		// if (i % 2)
+		// 	please_wait();
 		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i])) //AVANT (void *)&(*phis)[i] mais trop long. IDEM ?
 			return (errorminator(ERR_THD));
-		// usleep(100);
-		// printf("son voisin de droite : [%d][%d]\n", (*phis)[i].id, (*phis)[i].neighbour);
 		i++;
 	}
-	//pthread_join((*phis)[i].phi, NULL); // termine le thread avant de continuer -- CORRIGER
+
+	i = 0;
+	while (i < nbr)
+	{
+		pthread_join((*phis)[i].phi, NULL);
+		printf("[%d] joined a cult\n", i);
+		i++;
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -56,16 +63,16 @@ void	*the_routine(void *arg)
 
 	i = 0;
 	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
-	// printf("ROUTINE, phi id[%d], AVANT boucle\n\n\n", phi->id);
 
-	while (1) // le '3' n'est que pour TESTER, cette valeur n'a AUCUN SENS
+	while (phi->meals_nbr < phi->in->nbr_of_meals)
 	{
+		if (phi->id % 2)
+			please_wait();
 		eat_something(phi);
-		// printf("id[%d], their fork[%p]\n", phi->id, &phi->in->fork[phi->id]);
-		// printf("neighbour's id[%d], their neighbour's fork[%p]\n", phi->neighbour, &phi->in->fork[phi->neighbour]);
-		// printf("ROUTINE, DANS boucle\n");
+		printf("need some zzzz[%d]\n", phi->id);
+
 		i++;
 	}
-	// printf("ROUTINE this one's done, NEXT---------------------------\n\n\n");
+	printf("[%d] broke the loop\n", phi->id);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 13:23:06 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:22:17 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+
+# define RED "\001\033[1;91m\002"
 
 # define ERROR "Error\n"
 # define ERR_ARGS "Wrong number of arguments\n"
@@ -106,5 +108,6 @@ int		go_to_sleep(t_philos *phi);
 int		eat_something(t_philos *phi);
 int		think_about_life(t_philos *phi);
 int		surprise_ur_dead(t_philos *phi);
+int		please_wait();
 
 #endif
