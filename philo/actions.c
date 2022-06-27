@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 17:02:00 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:55:44 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int		eat_something(t_philos *phi)
 {
-	while (1)
-	{
 		pthread_mutex_lock(&phi->in->fork[phi->id]);
 		printf("this is MY fork\n");
 		pthread_mutex_lock(&phi->in->fork[phi->neighbour]);
@@ -23,48 +21,8 @@ int		eat_something(t_philos *phi)
 		printf("now I can eat\n");
 		pthread_mutex_unlock(&phi->in->fork[phi->neighbour]);
 		pthread_mutex_unlock(&phi->in->fork[phi->id]);
-	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	//NOTION DU TEMPS A AJOUTER SINON OK
 
 
 

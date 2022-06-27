@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 17:06:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:55:23 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	args_manager(t_inputs *in, int argc, char *argv[])
 	if (argc == 6)
 		in->nbr_of_meals = ft_atoi(argv[5]);
 	else
-		in->nbr_of_meals = 0;
+		in->nbr_of_meals = FREE_BUFFET;
 }
 
 int		philo_starter_pack(t_philos **phis)
@@ -58,7 +58,7 @@ void	*the_routine(void *arg)
 	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
 	// printf("ROUTINE, phi id[%d], AVANT boucle\n\n\n", phi->id);
 
-	while (i < 10) // le '3' n'est que pour TESTER, cette valeur n'a AUCUN SENS
+	while (1) // le '3' n'est que pour TESTER, cette valeur n'a AUCUN SENS
 	{
 		eat_something(phi);
 		// printf("id[%d], their fork[%p]\n", phi->id, &phi->in->fork[phi->id]);

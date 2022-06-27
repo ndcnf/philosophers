@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 15:54:47 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:24:46 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	if (need_space(&phis, argc, argv) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (philo_starter_pack(&phis))
+	if (philo_starter_pack(&phis) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 
 

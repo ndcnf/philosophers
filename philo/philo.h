@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 16:00:27 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 13:23:06 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 
 # define ALIVE 0
 # define DEAD 1
+
+# define FREE_BUFFET -1
 
 # define NOTHING 0
 # define SLEEPS 1
