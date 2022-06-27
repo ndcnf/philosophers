@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 18:54:47 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:01:28 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	*the_routine(void *arg)
 	while (phi->meals_nbr < phi->in->nbr_of_meals)
 	{
 		eat_something(phi);
-		printf(S_SLP);
+		printf("%d " S_SLP, phi->id);
 		please_wait(phi, phi->in->time_to_sleep);
-		printf(S_THK);
+		printf("%d " S_THK, phi->id);
 		//printf("need some zzzz[%d]\n", phi->id);
 		i++;
 	}
