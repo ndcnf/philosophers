@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 17:38:48 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:35:08 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ int	main(int argc, char *argv[])
 	if (philo_starter_pack(&phis) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 
-	//VERIFIER ETAT DES PHILOS
-	while (i < phis->in->number_of_philosophers)
-	{
-		printf("%d ate %d MEALS\n", phis[i].id, phis[i].meals_nbr);
-		i++;
-	}
+	// //VERIFIER ETAT DES PHILOS
+	// while (i < phis->in->number_of_philosophers)
+	// {
+	// 	time_usec();
+	// 	please_wait(&phis[i], 1000);
+	// 	printf("%d ate %d MEALS\n", phis[i].id, phis[i].meals_nbr);
+	// 	i++;
+	// }
 
 // ////////////TEST DU MUTEX/////////////////////////////////////////////////////
 // 	pthread_mutex_init(&phis->fork, NULL); //TESTER

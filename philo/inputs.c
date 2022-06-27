@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 17:31:10 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:54:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,15 @@ void	*the_routine(void *arg)
 
 	i = 0;
 	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
-
+	if (phi->id % 2)
+		please_wait(phi, (phi->in->time_to_eat));
 	while (phi->meals_nbr < phi->in->nbr_of_meals)
 	{
-		if (phi->id % 2)
-			please_wait();
 		eat_something(phi);
-		printf("need some zzzz[%d]\n", phi->id);
-
+		printf(S_SLP);
+		please_wait(phi, phi->in->time_to_sleep);
+		printf(S_THK);
+		//printf("need some zzzz[%d]\n", phi->id);
 		i++;
 	}
 	printf("[%d] broke the loop\n", phi->id);

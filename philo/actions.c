@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 17:33:41 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:54:35 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int		eat_something(t_philos *phi)
 	phi->meals_nbr++;
 	printf("I[%d] ate %d time yet\n", phi->id, phi->meals_nbr);
 
-	if (phi->id % 2)
-		please_wait();
+	please_wait(phi, phi->in->time_to_eat);
 
 	pthread_mutex_unlock(&phi->in->fork[phi->neighbour]);
 	pthread_mutex_unlock(&phi->in->fork[phi->id]);
@@ -40,17 +39,16 @@ int		eat_something(t_philos *phi)
 	return (EXIT_SUCCESS);
 }
 
-int		please_wait()
+int		please_wait(t_philos *phi, size_t future_t)
 {
-	int wait;
-	// wait = phi->in->time_to_eat;
-	wait = 100;
-	// while (wait)
-	// {
-	// 	wait = (wait / 5);
-	// 	printf("WAIT [%d]!\n", wait);
-		usleep(wait);
-	// }
+	(void)phi;
+	size_t past_t;
+	past_t = time_usec();
+
+	while ((time_usec() - past_t) <= future_t)
+	{
+		usleep(100);
+	}
 	return (EXIT_SUCCESS);
 }
 

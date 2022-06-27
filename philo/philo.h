@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 17:22:17 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:43:36 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int		check_args(int argc, char *argv[]);
 
 //time.c
 ////////
-void	time_usec(void); // type and arg to do
+size_t	time_usec(void);
 
 // utils.c
 //////////
@@ -108,6 +108,6 @@ int		go_to_sleep(t_philos *phi);
 int		eat_something(t_philos *phi);
 int		think_about_life(t_philos *phi);
 int		surprise_ur_dead(t_philos *phi);
-int		please_wait();
+int		please_wait(t_philos *phi, size_t future_t);
 
 #endif
