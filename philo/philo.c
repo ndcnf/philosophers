@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:27:31 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:16:56 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	main(int argc, char *argv[])
 
 ////////////TEST DU MUTEX/////////////////////////////////////////////////////
 	// pthread_mutex_destroy(&phis->fork);
-
+	printf("Simulation ended, welcome back.\n");
 	return (EXIT_SUCCESS);
 }

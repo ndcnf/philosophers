@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:30:34 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:23:12 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_inputs
 	int				t_to_eat;
 	int				t_to_sleep;
 	int				n_meals;
-	size_t			t_sim_go;
+	size_t			t_sim;
 	pthread_mutex_t	*fork;
 }	t_inputs;
 
@@ -106,10 +106,10 @@ void	ft_putstr(char *s);
 
 // actions.c
 ////////////
-int		go_to_sleep(t_philos *phi);
+// int		go_to_sleep(t_philos *phi);
 int		eat_something(t_philos *phi);
-int		think_about_life(t_philos *phi);
-int		surprise_ur_dead(t_philos *phi);
+// int		think_about_life(t_philos *phi);
+// int		surprise_ur_dead(t_philos *phi);
 int		please_wait(t_philos *phi, size_t future_t);
 
 #endif
