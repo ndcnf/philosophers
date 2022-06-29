@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 18:37:24 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:48:35 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int		eat_something(t_philos *phi)
 {
 	pthread_mutex_lock(&phi->in->fork[phi->id]);
-	printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
+	if (phi->in->status == ALIVE)
+		printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
 	// if (phi->in->n_philos < 2)
 	// {
 	// 	printf("%*ld %d " S_RIP1, 7, timelord() - phi->in->t_sim, phi->id);
@@ -39,12 +40,14 @@ int		eat_something(t_philos *phi)
 
 int		please_wait(t_philos *phi, size_t future_t)
 {
-	(void)phi;
+	// (void)phi;
 	size_t past_t;
 	past_t = timelord();
 
-	while ((timelord() - past_t) <= future_t)
+	while (phi->in->status == ALIVE)
 	{
+		if ((timelord() - past_t) >= future_t)
+			break ;
 		usleep(100);
 	}
 	return (EXIT_SUCCESS);

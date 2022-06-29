@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 18:36:39 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:51:34 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,12 @@ void	*the_routine(void *arg)
 		// }
 		if(eat_something(phi))
 			return(NULL);
+		if (phi->in->status == DEAD)
+			return (NULL);
 		printf("%*ld %d " S_SLP, 7, timelord() - phi->in->t_sim, phi->id);
 		please_wait(phi, phi->in->t_to_sleep);
+		if (phi->in->status == DEAD)
+			return (NULL);
 		printf("%*ld %d " S_THK, 7, timelord() - phi->in->t_sim, phi->id);
 	}
 	// printf("[%d] is free from the simulation\n", phi->id);
