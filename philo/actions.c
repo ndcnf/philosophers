@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 19:17:22 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 11:46:35 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,11 @@ int		eat_something(t_philos *phi)
 	printf("%*ld %d " S_FK, 7, time_usec() - phi->in->t_sim_start, phi->id);
 	printf("%*ld %d " S_EAT, 7, time_usec() - phi->in->t_sim_start, phi->id);
 	phi->meals_nbr++;
+	phi->last_meal = 0;
 	printf("[%d] ate %d time yet\n", phi->id, phi->meals_nbr);
-
 	please_wait(phi, phi->in->time_to_eat);
-
 	pthread_mutex_unlock(&phi->in->fork[phi->neighbour]);
 	pthread_mutex_unlock(&phi->in->fork[phi->id]);
-
-	//NOTION DU TEMPS A AJOUTER SINON OK
-
-
-
-
-	// 	while (i < phi->in->time_to_eat)
-	// 	{
-
-	// 	}
 	return (EXIT_SUCCESS);
 }
 
@@ -51,8 +40,3 @@ int		please_wait(t_philos *phi, size_t future_t)
 	}
 	return (EXIT_SUCCESS);
 }
-
-// int		go_to_sleep(t_philos *phi)
-// {
-
-// }
