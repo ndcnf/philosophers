@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:24:03 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:30:44 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 int		eat_something(t_philos *phi)
 {
 	pthread_mutex_lock(&phi->in->fork[phi->id]);
-	printf("%*ld %d " S_FK, 7, time_usec() - phi->in->t_sim_start, phi->id);
+	printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim_go, phi->id);
 	if (phi->in->n_philos < 2)
 	{
-		printf("%*ld %d " S_ALONE, 7, time_usec() - phi->in->t_sim_start, phi->id);
+		printf("%*ld %d " S_RIP1, 7, timelord() - phi->in->t_sim_go, phi->id);
 		pthread_mutex_unlock(&phi->in->fork[phi->id]);
 		return(EXIT_FAILURE);
 	}
 	pthread_mutex_lock(&phi->in->fork[phi->neighbour]);
-	printf("%*ld %d " S_FK, 7, time_usec() - phi->in->t_sim_start, phi->id);
-	printf("%*ld %d " S_EAT, 7, time_usec() - phi->in->t_sim_start, phi->id);
+	printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim_go, phi->id);
+	printf("%*ld %d " S_EAT, 7, timelord() - phi->in->t_sim_go, phi->id);
 	if (phi->last_meal > phi->in->t_to_eat)
 	{
 		printf("[%d]I might be dead\n", phi->id);
@@ -44,9 +44,9 @@ int		please_wait(t_philos *phi, size_t future_t)
 {
 	(void)phi;
 	size_t past_t;
-	past_t = time_usec();
+	past_t = timelord();
 
-	while ((time_usec() - past_t) <= future_t)
+	while ((timelord() - past_t) <= future_t)
 	{
 		usleep(100);
 	}

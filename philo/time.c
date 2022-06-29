@@ -6,13 +6,13 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:26:09 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:24:06 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:27:03 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-size_t	time_usec(void)
+size_t	timelord(void)
 {
 	struct timeval	time;
 

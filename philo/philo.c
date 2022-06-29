@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:24:15 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:27:31 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 	// //VERIFIER ETAT DES PHILOS
 	// while (i < phis->in->n_philos)
 	// {
-	// 	time_usec();
+	// 	timelord();
 	// 	please_wait(&phis[i], 1000);
 	// 	printf("%d ate %d MEALS\n", phis[i].id, phis[i].meals_nbr);
 	// 	i++;

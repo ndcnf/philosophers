@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:24:44 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:31:20 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,16 @@ void	*the_routine(void *arg)
 	t_philos	*phi;
 
 	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
-	phi->in->t_sim_start = time_usec();
+	phi->in->t_sim_go = timelord();
 	if (phi->id % 2)
 		please_wait(phi, (phi->in->t_to_eat));
 	while (phi->meals_nbr < phi->in->n_meals || phi->in->n_meals == FREE_BUFFET)
 	{
 		if(eat_something(phi))
 			return(NULL);
-		printf("%*ld %d " S_SLP, 7, time_usec() - phi->in->t_sim_start, phi->id);
+		printf("%*ld %d " S_SLP, 7, timelord() - phi->in->t_sim_go, phi->id);
 		please_wait(phi, phi->in->t_to_sleep);
-		printf("%*ld %d " S_THK, 7, time_usec() - phi->in->t_sim_start, phi->id);
+		printf("%*ld %d " S_THK, 7, timelord() - phi->in->t_sim_go, phi->id);
 	}
 	printf("[%d] broke the loop\n", phi->id);
 	return (NULL);

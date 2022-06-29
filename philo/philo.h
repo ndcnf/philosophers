@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:24:49 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:30:34 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define S_EAT "is eating\n"
 # define S_THK "is thinking\n"
 # define S_RIP "died\n"
-# define S_ALONE "died of solitude\n"
+# define S_RIP1 "died of solitude\n"
 
 # define ALIVE 0
 # define DEAD 1
@@ -60,7 +60,7 @@ typedef struct s_inputs
 	int				t_to_eat;
 	int				t_to_sleep;
 	int				n_meals;
-	size_t			t_sim_start;
+	size_t			t_sim_go;
 	pthread_mutex_t	*fork;
 }	t_inputs;
 
@@ -97,7 +97,7 @@ int		check_args(int argc, char *argv[]);
 
 //time.c
 ////////
-size_t	time_usec(void);
+size_t	timelord(void);
 
 // utils.c
 //////////
