@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 19:03:10 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:18:25 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define S_EAT "is eating\n"
 # define S_THK "is thinking\n"
 # define S_RIP "died\n"
+# define S_ALONE "died of solitude\n"
 
 # define ALIVE 0
 # define DEAD 1

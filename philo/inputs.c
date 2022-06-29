@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 19:14:11 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:05:01 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ int		philo_starter_pack(t_philos **phis)
 		init_philo(&(*phis)[i]);
 		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i])) //AVANT (void *)&(*phis)[i] mais trop long. IDEM ?
 			return (errorminator(ERR_THD));
+		if((*phis)[i].status == DEAD)
+		{
+			pthread_join((*phis)[i].phi, NULL);
+			return(EXIT_FAILURE);
+		}
 		i++;
 	}
 
@@ -60,9 +65,10 @@ void	*the_routine(void *arg)
 	phi->in->t_sim_start = time_usec();
 	if (phi->id % 2)
 		please_wait(phi, (phi->in->time_to_eat));
-	while (phi->meals_nbr < phi->in->nbr_of_meals)
+	while (phi->meals_nbr < phi->in->nbr_of_meals || phi->in->nbr_of_meals == FREE_BUFFET)
 	{
-		eat_something(phi);
+		if(eat_something(phi))
+			return(NULL);
 		printf("%*ld %d " S_SLP, 7, time_usec() - phi->in->t_sim_start, phi->id);
 		please_wait(phi, phi->in->time_to_sleep);
 		printf("%*ld %d " S_THK, 7, time_usec() - phi->in->t_sim_start, phi->id);
