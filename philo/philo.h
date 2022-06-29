@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 16:15:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:40:57 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-# define RED "\001\033[1;91m\002"
-
 # define ERROR "Error\n"
 # define ERR_ARGS "Wrong number of arguments\n"
 # define ERR_TYPE "Enter numbers between 1 and not too many\n"
@@ -38,18 +36,11 @@
 # define S_EAT "is eating\n"
 # define S_THK "is thinking\n"
 # define S_RIP "died\n"
-# define S_RIP1 "died of solitude\n"
 
 # define ALIVE 0
 # define DEAD 1
 
 # define FREE_BUFFET -1
-
-# define NOTHING 0
-# define SLEEPS 1
-# define EATS 2
-# define THINKS 3
-# define DIES 4
 
 // takes every args
 ///////////////////
@@ -72,10 +63,8 @@ typedef struct s_philos
 {
 	int			id;
 	int			meals_nbr;
-	//int			status;
-	int			last_meal; //when was their last meal?
-	int			neighbour; // if *r_nghbr fails
-	// int			action; //is eating, is sleeping, is thinking or is dead
+	int			last_meal;
+	int			neighbour;
 	pthread_t	phi;
 	t_inputs	*in;
 }	t_philos;
@@ -91,12 +80,12 @@ void	*surprise_ur_dead(void *arg);
 /////////
 int		need_space(t_philos **phis, int argc, char *argv[]);
 void	init_philo(t_philos *phi);
-// void	routine_du_mutex(phis);
 
 // checks.c
 ///////////
 int		errorminator(char *s);
 int		check_args(int argc, char *argv[]);
+void	free_minds(t_philos **phis);
 
 //time.c
 ////////
@@ -109,10 +98,7 @@ void	ft_putstr(char *s);
 
 // actions.c
 ////////////
-// int		go_to_sleep(t_philos *phi);
 int		eat_something(t_philos *phi);
-// int		think_about_life(t_philos *phi);
-// int		surprise_ur_dead(t_philos *phi);
 int		please_wait(t_philos *phi, size_t future_t);
 
 #endif

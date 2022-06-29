@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:06:47 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:22:15 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	args_manager(t_inputs *in, int argc, char *argv[])
 		in->n_meals = ft_atoi(argv[5]);
 	else
 		in->n_meals = FREE_BUFFET;
-	// in->undertaker = ALIVE;
 }
 
 int		philo_starter_pack(t_philos **phis)
@@ -39,14 +38,8 @@ int		philo_starter_pack(t_philos **phis)
 			return (errorminator(ERR_THD));
 		(*phis)[i].id = i;
 		init_philo(&(*phis)[i]);
-		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i])) //AVANT (void *)&(*phis)[i] mais trop long. IDEM ?
+		if (pthread_create(&(*phis)[i].phi, NULL, the_routine, &(*phis)[i]))
 			return (errorminator(ERR_THD));
-		// if((*phis)[i].status == DEAD)
-		// {
-		// 	pthread_join((*phis)[i].phi, NULL);
-		// 	printf("%*ld %d " "is JOINING a cult, again.\n", 7, timelord() - (*phis)->in->t_sim, i);
-		// 	return(EXIT_FAILURE);
-		// }
 		i++;
 	}
 	if(pthread_create(&(*phis)->in->undertaker, NULL, surprise_ur_dead, *phis))
@@ -56,7 +49,6 @@ int		philo_starter_pack(t_philos **phis)
 	while (i < nbr)
 	{
 		pthread_join((*phis)[i].phi, NULL);
-		// printf("[%d] joined a cult\n", i);
 		i++;
 	}
 	pthread_join((*phis)->in->undertaker, NULL);
@@ -67,27 +59,18 @@ void	*the_routine(void *arg)
 {
 	t_philos	*phi;
 
-	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
-	// phi->in->t_sim = timelord();
+	phi = (t_philos *)arg;
 	if (phi->id % 2)
 		please_wait(phi, (phi->in->t_to_eat));
 	if (phi->in->n_philos < 2)
 	{
 		printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
 		please_wait(phi, phi->in->t_to_die + 1);
-	//	printf("%*ld %d " S_RIP1, 7, timelord() - phi->in->t_sim, phi->id);
 		return(NULL);
 	}
 	while ((phi->meals_nbr < phi->in->n_meals ||
 			phi->in->n_meals == FREE_BUFFET) && phi->in->status == ALIVE)
 	{
-		// if (phi->last_meal > phi->in->t_to_eat)
-		// {
-		// 	// phi->in->undertaker = DEAD;
-		// 	pthread_join(phi->phi, NULL); // alors ?
-		// 	// printf("[%d] joined a NEW cult\n", phi->id);
-		// 	return(NULL);
-		// }
 		if(eat_something(phi))
 			return(NULL);
 		if (phi->in->status == DEAD)
@@ -98,7 +81,7 @@ void	*the_routine(void *arg)
 			return (NULL);
 		printf("%*ld %d " S_THK, 7, timelord() - phi->in->t_sim, phi->id);
 	}
-	// printf("[%d] is free from the simulation\n", phi->id);
+
 	return (NULL);
 }
 
@@ -116,11 +99,8 @@ void	*surprise_ur_dead(void *arg)
 		while (i < phi->in->n_philos)
 		{
 			ago = (timelord() - phi[i].in->t_sim) - phi->last_meal;
-			// printf("AGO{%zu}\n", ago);
-				// ago = timelord() - phi->last_meal;
 			if (ago > (size_t)phi[i].in->t_to_die)
 			{
-				// printf("[%d] ago[%zu] sim[%ld]\n", phi[i].last_meal, ago, phi[i].in->t_sim);
 				phi[i].in->status = DEAD;
 				printf("%*ld %d " S_RIP, 7, timelord() - phi[i].in->t_sim, phi[i].id);
 				return (NULL);
@@ -128,6 +108,5 @@ void	*surprise_ur_dead(void *arg)
 			i++;
 		}
 	}
-	// printf("%*ld %d " S_RIP, 7, timelord() - phi->in->t_sim, phi->id);
 	return (NULL);
 }

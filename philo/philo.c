@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:08:27 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:30:17 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@ int	main(int argc, char *argv[])
 	if (philo_starter_pack(&phis) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	printf("The simulation is complete. Return to your life now.\n");
-	// //VERIFIER ETAT DES PHILOS
-	// while (i < phis->in->n_philos)
-	// {
-	// 	timelord();
-	// 	please_wait(&phis[i], 1000);
-	// 	printf("%d ate %d MEALS\n", phis[i].id, phis[i].meals_nbr);
-	// 	i++;
-	// }
-
-////////////TEST DU MUTEX/////////////////////////////////////////////////////
-	// pthread_mutex_destroy(&phis->fork);
+	free_minds(&phis);
 	return (EXIT_SUCCESS);
 }

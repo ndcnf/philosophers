@@ -1,5 +1,5 @@
 CC =		cc
-CFLAGS =	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS =	-Wall -Wextra -Werror -g #-fsanitize=address
 NAME =		philo
 AR =		ar rcs
 SRC =		philo.c \
@@ -7,7 +7,6 @@ SRC =		philo.c \
 			utils.c \
 			checks.c \
 			init.c \
-			time.c \
 			actions.c \
 
 OBJ =		${SRC:.c=.o}

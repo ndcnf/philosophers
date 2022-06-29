@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 17:00:45 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:19:56 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,12 @@ void	init_philo(t_philos *phi)
 	else
 		phi->neighbour = (phi->id + 1);
 	phi->in->status = ALIVE;
-	// phi->action = NOTHING;
+}
+
+size_t	timelord(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
