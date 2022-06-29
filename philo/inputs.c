@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 18:51:34 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:06:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,8 @@ void	*surprise_ur_dead(void *arg)
 	int			i;
 
 	phi = (t_philos *)arg;
-	while (phi->in->status == ALIVE)
+	while (phi->in->status == ALIVE && ((phi->meals_nbr < phi->in->n_meals) ||
+			phi->in->n_meals == FREE_BUFFET))
 	{
 		i = 0;
 		while (i < phi->in->n_philos)

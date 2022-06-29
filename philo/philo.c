@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 18:16:08 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:08:27 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	if (philo_starter_pack(&phis) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-
+	printf("The simulation is complete. Return to your life now.\n");
 	// //VERIFIER ETAT DES PHILOS
 	// while (i < phis->in->n_philos)
 	// {
