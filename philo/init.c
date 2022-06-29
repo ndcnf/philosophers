@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/22 16:14:32 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:23:57 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	init_philo(t_philos *phi)
 {
 	phi->last_meal = 0;
 	phi->meals_nbr = 0;
-	if (phi->id == (phi->in->number_of_philosophers) - 1)
+	if (phi->id == (phi->in->n_philos) - 1)
 		phi->neighbour = 0;
 	else
 		phi->neighbour = (phi->id + 1);

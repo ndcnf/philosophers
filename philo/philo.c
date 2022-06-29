@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:14:15 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/27 19:14:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:24:15 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 
 	// //VERIFIER ETAT DES PHILOS
-	// while (i < phis->in->number_of_philosophers)
+	// while (i < phis->in->n_philos)
 	// {
 	// 	time_usec();
 	// 	please_wait(&phis[i], 1000);

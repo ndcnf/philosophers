@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:05:01 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:24:44 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	args_manager(t_inputs *in, int argc, char *argv[])
 {
-	in->number_of_philosophers = ft_atoi(argv[1]);
-	in->time_to_die = ft_atoi(argv[2]);
-	in->time_to_eat = ft_atoi(argv[3]);
-	in->time_to_sleep = ft_atoi(argv[4]);
+	in->n_philos = ft_atoi(argv[1]);
+	in->t_to_die = ft_atoi(argv[2]);
+	in->t_to_eat = ft_atoi(argv[3]);
+	in->t_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
-		in->nbr_of_meals = ft_atoi(argv[5]);
+		in->n_meals = ft_atoi(argv[5]);
 	else
-		in->nbr_of_meals = FREE_BUFFET;
+		in->n_meals = FREE_BUFFET;
 }
 
 int		philo_starter_pack(t_philos **phis)
@@ -30,7 +30,7 @@ int		philo_starter_pack(t_philos **phis)
 	int		i;
 
 	i = 0;
-	nbr = (*phis)->in->number_of_philosophers;
+	nbr = (*phis)->in->n_philos;
 	while (i < nbr)
 	{
 		if (pthread_mutex_init(&(*phis)->in->fork[i], NULL))
@@ -64,13 +64,13 @@ void	*the_routine(void *arg)
 	phi = (t_philos *)arg; //Est-ce que c'est un peu plus juste en castant le type attendu?
 	phi->in->t_sim_start = time_usec();
 	if (phi->id % 2)
-		please_wait(phi, (phi->in->time_to_eat));
-	while (phi->meals_nbr < phi->in->nbr_of_meals || phi->in->nbr_of_meals == FREE_BUFFET)
+		please_wait(phi, (phi->in->t_to_eat));
+	while (phi->meals_nbr < phi->in->n_meals || phi->in->n_meals == FREE_BUFFET)
 	{
 		if(eat_something(phi))
 			return(NULL);
 		printf("%*ld %d " S_SLP, 7, time_usec() - phi->in->t_sim_start, phi->id);
-		please_wait(phi, phi->in->time_to_sleep);
+		please_wait(phi, phi->in->t_to_sleep);
 		printf("%*ld %d " S_THK, 7, time_usec() - phi->in->t_sim_start, phi->id);
 	}
 	printf("[%d] broke the loop\n", phi->id);

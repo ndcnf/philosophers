@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:18:25 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:24:49 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@
 ///////////////////
 typedef struct s_inputs
 {
-	int				number_of_philosophers;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				nbr_of_meals;
+	int				n_philos;
+	int				t_to_die;
+	int				t_to_eat;
+	int				t_to_sleep;
+	int				n_meals;
 	size_t			t_sim_start;
 	pthread_mutex_t	*fork;
 }	t_inputs;
