@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 17:31:54 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:15:11 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		philo_starter_pack(t_philos **phis)
 		// printf("[%d] joined a cult\n", i);
 		i++;
 	}
+	pthread_join((*phis)->in->undertaker, NULL);
 	return (EXIT_SUCCESS);
 }
 
@@ -94,17 +95,26 @@ void	*surprise_ur_dead(void *arg)
 {
 	t_philos	*phi;
 	size_t		ago;
+	int			i;
 
 	phi = (t_philos *)arg;
-
-	ago = timelord() - phi->in->t_sim - phi->last_meal;
-	printf("AGO{%zu}\n", ago);
-		// ago = timelord() - phi->last_meal;
-	if (ago > (size_t)phi->in->t_to_eat)
+	while (phi->in->status == ALIVE)
 	{
-		printf("[%d] ago[%zu] sim[%ld]\n", phi->last_meal, ago, phi->in->t_sim);
-		phi->in->status = DEAD;
-		printf("%*ld %d " S_RIP, 7, timelord() - phi->in->t_sim, phi->id);
+		i = 0;
+		while (i < phi->in->n_philos)
+		{
+			ago = (timelord() - phi[i].in->t_sim) - phi->last_meal;
+			// printf("AGO{%zu}\n", ago);
+				// ago = timelord() - phi->last_meal;
+			if (ago > (size_t)phi[i].in->t_to_die)
+			{
+				printf("[%d] ago[%zu] sim[%ld]\n", phi[i].last_meal, ago, phi[i].in->t_sim);
+				phi[i].in->status = DEAD;
+				printf("%*ld %d " S_RIP, 7, timelord() - phi[i].in->t_sim, phi[i].id);
+				return (NULL);
+			}
+			i++;
+		}
 	}
 	// printf("%*ld %d " S_RIP, 7, timelord() - phi->in->t_sim, phi->id);
 	return (NULL);
