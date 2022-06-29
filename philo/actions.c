@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 14:15:45 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:00:37 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		eat_something(t_philos *phi)
 	printf("%*ld %d " S_EAT, 7, timelord() - phi->in->t_sim, phi->id);
 
 	phi->meals_nbr++;
-	phi->last_meal = 0;
+	phi->last_meal = timelord() - phi->in->t_sim;
 	// printf("[%d] ate %d time yet\n", phi->id, phi->meals_nbr);
 	please_wait(phi, phi->in->t_to_eat);
 	pthread_mutex_unlock(&phi->in->fork[phi->neighbour]);

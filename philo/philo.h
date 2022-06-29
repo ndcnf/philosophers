@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 14:23:12 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:15:12 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_inputs
 	int				t_to_eat;
 	int				t_to_sleep;
 	int				n_meals;
+	pthread_t		undertaker;
+	int				status;
 	size_t			t_sim;
 	pthread_mutex_t	*fork;
 }	t_inputs;
@@ -70,10 +72,10 @@ typedef struct s_philos
 {
 	int			id;
 	int			meals_nbr;
-	int			status;
+	//int			status;
 	int			last_meal; //when was their last meal?
 	int			neighbour; // if *r_nghbr fails
-	int			action; //is eating, is sleeping, is thinking or is dead
+	// int			action; //is eating, is sleeping, is thinking or is dead
 	pthread_t	phi;
 	t_inputs	*in;
 }	t_philos;
@@ -83,6 +85,7 @@ typedef struct s_philos
 void	args_manager(t_inputs *in, int argc, char *argv[]);
 int		philo_starter_pack(t_philos **phis);
 void	*the_routine(void *arg);
+void	*surprise_ur_dead(void *arg);
 
 // init.c
 /////////

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:33:16 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 13:30:38 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:00:45 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void	init_philo(t_philos *phi)
 		phi->neighbour = 0;
 	else
 		phi->neighbour = (phi->id + 1);
-	phi->status = ALIVE;
-	phi->action = NOTHING;
+	phi->in->status = ALIVE;
+	// phi->action = NOTHING;
 }
