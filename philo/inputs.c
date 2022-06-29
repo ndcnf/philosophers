@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 18:15:11 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:17:47 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	*the_routine(void *arg)
 		please_wait(phi, phi->in->t_to_sleep);
 		printf("%*ld %d " S_THK, 7, timelord() - phi->in->t_sim, phi->id);
 	}
-	printf("[%d] is free from the simulation\n", phi->id);
+	// printf("[%d] is free from the simulation\n", phi->id);
 	return (NULL);
 }
 
@@ -108,7 +108,7 @@ void	*surprise_ur_dead(void *arg)
 				// ago = timelord() - phi->last_meal;
 			if (ago > (size_t)phi[i].in->t_to_die)
 			{
-				printf("[%d] ago[%zu] sim[%ld]\n", phi[i].last_meal, ago, phi[i].in->t_sim);
+				// printf("[%d] ago[%zu] sim[%ld]\n", phi[i].last_meal, ago, phi[i].in->t_sim);
 				phi[i].in->status = DEAD;
 				printf("%*ld %d " S_RIP, 7, timelord() - phi[i].in->t_sim, phi[i].id);
 				return (NULL);
