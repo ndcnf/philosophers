@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 18:17:47 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:36:39 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ void	*the_routine(void *arg)
 	// phi->in->t_sim = timelord();
 	if (phi->id % 2)
 		please_wait(phi, (phi->in->t_to_eat));
+	if (phi->in->n_philos < 2)
+	{
+		printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
+		please_wait(phi, phi->in->t_to_die + 1);
+	//	printf("%*ld %d " S_RIP1, 7, timelord() - phi->in->t_sim, phi->id);
+		return(NULL);
+	}
 	while ((phi->meals_nbr < phi->in->n_meals ||
 			phi->in->n_meals == FREE_BUFFET) && phi->in->status == ALIVE)
 	{
