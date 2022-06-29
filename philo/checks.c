@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 15:57:12 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:43:58 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:48:02 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	free_minds(t_philos **phis)
 	int	i;
 
 	i = 0;
-
 	while (i < (*phis)->in->n_philos)
 	{
 		pthread_mutex_destroy((*phis)[i].in->fork);

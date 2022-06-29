@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:22:15 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:53:50 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	args_manager(t_inputs *in, int argc, char *argv[])
 		in->n_meals = FREE_BUFFET;
 }
 
-int		philo_starter_pack(t_philos **phis)
+int	philo_starter_pack(t_philos **phis)
 {
 	int		nbr;
 	int		i;
@@ -42,15 +42,11 @@ int		philo_starter_pack(t_philos **phis)
 			return (errorminator(ERR_THD));
 		i++;
 	}
-	if(pthread_create(&(*phis)->in->undertaker, NULL, surprise_ur_dead, *phis))
+	if (pthread_create(&(*phis)->in->undertaker, NULL, surprise_ur_dead, *phis))
 		return (errorminator(ERR_THD));
-
 	i = 0;
 	while (i < nbr)
-	{
-		pthread_join((*phis)[i].phi, NULL);
-		i++;
-	}
+		pthread_join((*phis)[i++].phi, NULL);
 	pthread_join((*phis)->in->undertaker, NULL);
 	return (EXIT_SUCCESS);
 }
@@ -66,13 +62,13 @@ void	*the_routine(void *arg)
 	{
 		printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
 		please_wait(phi, phi->in->t_to_die + 1);
-		return(NULL);
+		return (NULL);
 	}
-	while ((phi->meals_nbr < phi->in->n_meals ||
-			phi->in->n_meals == FREE_BUFFET) && phi->in->status == ALIVE)
+	while ((phi->meals_nbr < phi->in->n_meals
+			|| phi->in->n_meals == FREE_BUFFET) && phi->in->status == ALIVE)
 	{
-		if(eat_something(phi))
-			return(NULL);
+		if (eat_something(phi))
+			return (NULL);
 		if (phi->in->status == DEAD)
 			return (NULL);
 		printf("%*ld %d " S_SLP, 7, timelord() - phi->in->t_sim, phi->id);
@@ -81,7 +77,6 @@ void	*the_routine(void *arg)
 			return (NULL);
 		printf("%*ld %d " S_THK, 7, timelord() - phi->in->t_sim, phi->id);
 	}
-
 	return (NULL);
 }
 
@@ -92,8 +87,8 @@ void	*surprise_ur_dead(void *arg)
 	int			i;
 
 	phi = (t_philos *)arg;
-	while (phi->in->status == ALIVE && ((phi->meals_nbr < phi->in->n_meals) ||
-			phi->in->n_meals == FREE_BUFFET))
+	while (phi->in->status == ALIVE && ((phi->meals_nbr < phi->in->n_meals)
+			|| phi->in->n_meals == FREE_BUFFET))
 	{
 		i = 0;
 		while (i < phi->in->n_philos)
@@ -102,7 +97,8 @@ void	*surprise_ur_dead(void *arg)
 			if (ago > (size_t)phi[i].in->t_to_die)
 			{
 				phi[i].in->status = DEAD;
-				printf("%*ld %d " S_RIP, 7, timelord() - phi[i].in->t_sim, phi[i].id);
+				printf("%*ld %d " S_RIP, 7, timelord() - phi[i].in->t_sim,
+					phi[i].id);
 				return (NULL);
 			}
 			i++;

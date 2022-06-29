@@ -6,13 +6,13 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:11:27 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:47:35 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		eat_something(t_philos *phi)
+int	eat_something(t_philos *phi)
 {
 	pthread_mutex_lock(&phi->in->fork[phi->id]);
 	if (phi->in->status == ALIVE)
@@ -28,11 +28,11 @@ int		eat_something(t_philos *phi)
 	return (EXIT_SUCCESS);
 }
 
-int		please_wait(t_philos *phi, size_t future_t)
+int	please_wait(t_philos *phi, size_t future_t)
 {
-	size_t past_t;
-	past_t = timelord();
+	size_t	past_t;
 
+	past_t = timelord();
 	while (phi->in->status == ALIVE)
 	{
 		if ((timelord() - past_t) >= future_t)
