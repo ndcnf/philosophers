@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 17:13:47 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:40:57 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:19:56 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_inputs
 	int				status;
 	size_t			t_sim;
 	pthread_mutex_t	*fork;
+	pthread_mutex_t	msg;
 }	t_inputs;
 
 // defines a philospher
@@ -75,6 +76,7 @@ void	args_manager(t_inputs *in, int argc, char *argv[]);
 int		philo_starter_pack(t_philos **phis);
 void	*the_routine(void *arg);
 void	*surprise_ur_dead(void *arg);
+void	message(t_philos *phi, char *s);
 
 // init.c
 /////////

@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 08:50:51 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:53:50 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/30 15:01:57 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	philo_starter_pack(t_philos **phis)
 	i = 0;
 	nbr = (*phis)->in->n_philos;
 	(*phis)->in->t_sim = timelord();
+	pthread_mutex_init(&(*phis)->in->msg, NULL);
 	while (i < nbr)
 	{
 		if (pthread_mutex_init(&(*phis)->in->fork[i], NULL))
@@ -71,11 +72,11 @@ void	*the_routine(void *arg)
 			return (NULL);
 		if (phi->in->status == DEAD)
 			return (NULL);
-		printf("%*ld %d " S_SLP, 7, timelord() - phi->in->t_sim, phi->id);
+		message (phi, S_SLP);
 		please_wait(phi, phi->in->t_to_sleep);
 		if (phi->in->status == DEAD)
 			return (NULL);
-		printf("%*ld %d " S_THK, 7, timelord() - phi->in->t_sim, phi->id);
+		message (phi, S_THK);
 	}
 	return (NULL);
 }
@@ -94,15 +95,25 @@ void	*surprise_ur_dead(void *arg)
 		while (i < phi->in->n_philos)
 		{
 			ago = (timelord() - phi[i].in->t_sim) - phi->last_meal;
-			if (ago > (size_t)phi[i].in->t_to_die)
+			if (ago > (size_t)phi[i].in->t_to_die || phi[i].in->status == DEAD)
 			{
 				phi[i].in->status = DEAD;
+				pthread_mutex_lock(&phi->in->msg);
 				printf("%*ld %d " S_RIP, 7, timelord() - phi[i].in->t_sim,
 					phi[i].id);
+				pthread_mutex_unlock(&phi->in->msg);
 				return (NULL);
 			}
 			i++;
 		}
 	}
 	return (NULL);
+}
+
+void	message(t_philos *phi, char *s)
+{
+	pthread_mutex_lock(&phi->in->msg);
+	if (phi->in->status == ALIVE)
+		printf("%*ld %d %s", 7, timelord() - phi->in->t_sim, phi->id, s);
+	pthread_mutex_unlock(&phi->in->msg);
 }

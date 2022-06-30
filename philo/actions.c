@@ -6,7 +6,7 @@
 /*   By: nchennaf <nchennaf@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:52:02 by nchennaf          #+#    #+#             */
-/*   Updated: 2022/06/29 19:47:35 by nchennaf         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:59:51 by nchennaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 int	eat_something(t_philos *phi)
 {
 	pthread_mutex_lock(&phi->in->fork[phi->id]);
-	if (phi->in->status == ALIVE)
-		printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
+	if (phi->in->status == DEAD)
+		return (EXIT_FAILURE);
+	message(phi, S_FK);
 	pthread_mutex_lock(&phi->in->fork[phi->neighbour]);
-	printf("%*ld %d " S_FK, 7, timelord() - phi->in->t_sim, phi->id);
-	printf("%*ld %d " S_EAT, 7, timelord() - phi->in->t_sim, phi->id);
+	if (phi->in->status == DEAD)
+		return (EXIT_FAILURE);
+	message(phi, S_FK);
+	if (phi->in->status == DEAD)
+		return (EXIT_FAILURE);
+	message(phi, S_EAT);
 	phi->last_meal = timelord() - phi->in->t_sim;
 	phi->meals_nbr++;
 	please_wait(phi, phi->in->t_to_eat);
